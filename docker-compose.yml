@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  build:
+    build:
+      context: .
+      cache_from:
+        - elixir_ic-build
+      target: build
+    image: elixir_ic-build
+
+  app:
+    build:
+      context: .
+      cache_from:
+        - elixir_ic-build
+        - elixir_ic
+      target: app
+    image: elixir_ic
