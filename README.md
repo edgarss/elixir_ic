@@ -1,8 +1,8 @@
-[![Build Status](CI_BADGE_URL goes here)](REPO_URL goes here)
+[![Build Status](https://github.com/edgarss/elixir_ic/actions/workflows/test.yml/badge.svg)](https://github.com/edgarss/elixir_ic)
 
 ## Introduction
 
-> *App introduction goes here ...*
+> A web application that will extract large amounts of data from the Google search results page.
 
 ## Project Setup
 
@@ -17,6 +17,12 @@
   - [asdf](https://github.com/asdf-vm/asdf)
   - [asdf-erlang](https://github.com/asdf-vm/asdf-erlang)
   - [asdf-elixir](https://github.com/asdf-vm/asdf-elixir)
+
+### Demo
+
+* Staging - https://elixir-ic-staging.herokuapp.com
+
+* Production - https://elixir-ic.herokuapp.com
 
 ### Development
 
