@@ -36,7 +36,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - name: Setup Elixit
+      - name: Setup Elixir
         uses: erlef/setup-elixir@v1
         with:
           otp-version: ${{ env.OTP_VERSION }}
@@ -95,4 +95,3 @@ jobs:
         with:
           name: wallaby_screenshots
           path: tmp/wallaby_screenshots/
-      
