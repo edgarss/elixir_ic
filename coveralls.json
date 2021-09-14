@@ -1,0 +1,15 @@
+{
+  "skip_files": [
+    "lib/mix",
+    "lib/elixir_ic/application.ex",
+    "lib/elixir_ic/release_tasks.ex",
+    "lib/elixir_ic_web.ex",
+    "lib/elixir_ic_mail.ex",
+    "lib/elixir_ic_web/endpoint.ex",
+    "lib/elixir_ic_web/views/error_helpers.ex",
+    "test/support"
+  ],
+  "coverage_options": {
+    "minimum_coverage": 100
+  }
+}

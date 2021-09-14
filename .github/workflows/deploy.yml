@@ -1,0 +1,45 @@
+name: Deploy
+
+on: 
+  push: 
+    branches:
+      - main
+      - develop
+
+env:
+  HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
+  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+  HEROKU_STAGING_APP_NAME: ${{ secrets.HEROKU_STAGING_APP }}
+  HEROKU_PRODUCTION_APP_NAME: ${{ secrets.HEROKU_PRODUCTION_APP }}
+
+jobs:
+  deploy:
+    name: Deploy Staging
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.8.0
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy Staging
+        uses: akhileshns/heroku-deploy@v3.12.12
+        if: github.ref == 'refs/heads/develop'
+        with:
+          heroku_api_key: ${{env.HEROKU_API_KEY}}
+          heroku_app_name: ${{ env.HEROKU_STAGING_APP_NAME }}
+          heroku_email: ${{ env.HEROKU_EMAIL }}
+          usedocker: true
+
+      - name: Deploy Production
+        uses: akhileshns/heroku-deploy@v3.12.12
+        if: github.ref == 'refs/heads/main'
+        with:
+          heroku_api_key: ${{env.HEROKU_API_KEY}}
+          heroku_app_name: ${{ env.HEROKU_PRODUCTION_APP_NAME }}
+          heroku_email: ${{ env.HEROKU_EMAIL }}
+          usedocker: true
