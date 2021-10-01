@@ -1,8 +1,8 @@
 defmodule ElixirIcWeb.UserSettingsControllerTest do
   use ElixirIcWeb.ConnCase, async: true
 
-  alias ElixirIc.Accounts
   import ElixirIc.AccountsFixtures
+  alias ElixirIc.Accounts
 
   setup :register_and_log_in_user
 

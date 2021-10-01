@@ -5,7 +5,10 @@ defmodule ElixirIc.Accounts do
 
   import Ecto.Query, warn: false
   alias ElixirIc.Repo
-  alias ElixirIc.Accounts.{User, UserToken, UserNotifier}
+
+  # We need to disable the check below because of this issue https://github.com/rrrene/credo/issues/441
+  # credo:disable-for-next-line Credo.Check.Consistency.MultiAliasImportRequireUse
+  alias ElixirIc.Accounts.{User, UserNotifier, UserToken}
 
   ## Database getters
 

@@ -1,8 +1,11 @@
 defmodule ElixirIc.AccountsTest do
   use ElixirIc.DataCase
 
-  alias ElixirIc.Accounts
   import ElixirIc.AccountsFixtures
+  alias ElixirIc.Accounts
+
+  # We need to disable the check below because of this issue https://github.com/rrrene/credo/issues/441
+  # credo:disable-for-next-line Credo.Check.Consistency.MultiAliasImportRequireUse
   alias ElixirIc.Accounts.{User, UserToken}
 
   describe "get_user_by_email/1" do

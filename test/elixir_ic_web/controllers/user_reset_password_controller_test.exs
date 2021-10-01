@@ -1,9 +1,9 @@
 defmodule ElixirIcWeb.UserResetPasswordControllerTest do
   use ElixirIcWeb.ConnCase, async: true
 
+  import ElixirIc.AccountsFixtures
   alias ElixirIc.Accounts
   alias ElixirIc.Repo
-  import ElixirIc.AccountsFixtures
 
   setup do
     %{user: user_fixture()}

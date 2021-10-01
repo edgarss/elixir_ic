@@ -1,9 +1,9 @@
 defmodule ElixirIcWeb.UserAuthTest do
   use ElixirIcWeb.ConnCase, async: true
 
+  import ElixirIc.AccountsFixtures
   alias ElixirIc.Accounts
   alias ElixirIcWeb.UserAuth
-  import ElixirIc.AccountsFixtures
 
   @remember_me_cookie "_elixir_ic_web_user_remember_me"
 
