@@ -31,7 +31,11 @@
           "apps/*/test/",
           "apps/*/web/"
         ],
-        excluded: [~r"/_build/", ~r"/deps/", ~r"/node_modules/"]
+        excluded: [
+          ~r"/_build/",
+          ~r"/deps/",
+          ~r"/node_modules/"
+        ]
       },
       #
       # Load and configure plugins here:
@@ -173,9 +177,10 @@
         {Credo.Check.Refactor.AppendSingleItem, []},
         {Credo.Check.Refactor.DoubleBooleanNegation, []},
         {Credo.Check.Refactor.ModuleDependencies, false},
-        {Credo.Check.Refactor.NegatedIsNil, []},
+        {Credo.Check.Refactor.NegatedIsNil,
+         files: %{excluded: ["lib/elixir_ic_web/controllers/user_confirmation_controller.ex"]}},
         {Credo.Check.Refactor.PipeChainStart, []},
-        {Credo.Check.Refactor.VariableRebinding, []},
+        {Credo.Check.Refactor.VariableRebinding, files: %{excluded: ["**/*_test.exs"]}},
         {Credo.Check.Warning.LeakyEnvironment, []},
         {Credo.Check.Warning.MapGetUnsafePass, []},
         {Credo.Check.Warning.UnsafeToAtom, []}
