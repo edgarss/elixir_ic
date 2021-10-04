@@ -2,8 +2,10 @@ defmodule ElixirIcWeb.UserConfirmationControllerTest do
   use ElixirIcWeb.ConnCase, async: true
 
   import ElixirIc.AccountsFixtures
-  alias ElixirIc.Accounts
-  alias ElixirIc.Repo
+
+  # We need to disable the check below because of this issue https://github.com/rrrene/credo/issues/441
+  # credo:disable-for-next-line Credo.Check.Consistency.MultiAliasImportRequireUse
+  alias ElixirIc.{Accounts, Repo}
 
   setup do
     %{user: user_fixture()}
