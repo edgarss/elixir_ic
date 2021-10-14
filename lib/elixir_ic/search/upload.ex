@@ -9,6 +9,7 @@ defmodule ElixirIc.Search.Upload do
   def process(%User{} = user, %Plug.Upload{} = upload) do
     upload.path
     |> keyword_values()
+    |> Enum.uniq()
     |> Enum.reduce(Multi.new(), fn name, multi ->
       Multi.insert(
         multi,
