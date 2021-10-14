@@ -13,7 +13,7 @@ defmodule ElixirIc.Search.Upload do
       Multi.insert(
         multi,
         {:keyword, name},
-        Keyword.changeset(%Keyword{}, %{name: String.trim(name), user_id: user.id})
+        Keyword.changeset(%Keyword{}, %{name: String.trim(name), user: user})
       )
     end)
     |> Repo.transaction()

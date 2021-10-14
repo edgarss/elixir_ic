@@ -2,6 +2,8 @@ defmodule ElixirIc.Search.Keyword do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias ElixirIc.Accounts.User
+
   schema "keywords" do
     field :name, :string
 
@@ -9,14 +11,15 @@ defmodule ElixirIc.Search.Keyword do
       default: :pending,
       values: [pending: 0, started: 1, failed: 2, finished: 3]
 
-    field :user_id, :id
+    belongs_to :user, User
 
     timestamps()
   end
 
   def changeset(keyword, attrs) do
     keyword
-    |> cast(attrs, [:name, :user_id])
-    |> validate_required([:name, :user_id])
+    |> cast(attrs, [:name])
+    |> put_assoc(:user, attrs[:user])
+    |> validate_required([:name, :user])
   end
 end
