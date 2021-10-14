@@ -4,9 +4,11 @@ defmodule ElixirIc.Search.Keyword do
 
   schema "keywords" do
     field :name, :string
+
     field :status, Ecto.Enum,
       default: :pending,
       values: [pending: 0, started: 1, failed: 2, finished: 3]
+
     field :user_id, :id
 
     timestamps()
