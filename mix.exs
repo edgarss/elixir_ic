@@ -50,6 +50,7 @@ defmodule ElixirIc.MixProject do
       {:excoveralls, "~> 0.14.2", [only: :test]},
       {:dialyxir, "~> 1.1.0", [only: [:dev], runtime: false]},
       {:credo, "~> 1.5.6", [only: [:dev, :test], runtime: false]},
+      {:csv, "~> 2.4"},
       {:nimble_template, "~> 3.0", only: :dev, runtime: false},
       {:phoenix, "~> 1.5.12"},
       {:phoenix_ecto, "~> 4.4"},

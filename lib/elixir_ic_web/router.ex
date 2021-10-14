@@ -25,6 +25,12 @@ defmodule ElixirIcWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/", ElixirIcWeb do
+    pipe_through [:browser, :require_authenticated_user]
+
+    resources "/uploads", UploadController, only: [:new, :create]
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", ElixirIcWeb do
   #   pipe_through :api
