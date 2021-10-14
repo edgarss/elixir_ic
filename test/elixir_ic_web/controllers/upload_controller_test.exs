@@ -27,7 +27,7 @@ defmodule ElixirIc.UploadControllerTest do
       assert get_flash(result_conn, :info) == "File processed successfully"
     end
 
-    test "shows error when csv is not in correct format" , %{conn: conn} do
+    test "shows error when csv is not in correct format", %{conn: conn} do
       upload = %Plug.Upload{path: "test/support/fixtures/csv/invalid.csv", filename: "upload.csv"}
 
       result_conn = post(conn, Routes.upload_path(conn, :create), %{upload: %{file: upload}})
